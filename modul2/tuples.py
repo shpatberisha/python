@@ -52,4 +52,3 @@ contact_info={
 alice_info=contact_info['alice']
 phone=alice_info[0]
 print(alice_info)
-a
