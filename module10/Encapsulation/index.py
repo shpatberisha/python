@@ -1,0 +1,28 @@
+class Student:
+    def __init__(self,name,age):
+        self.__name=name
+        self.__age=age
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self,name):
+        self.__name=name
+
+    def get_age(self):
+        return self.__age
+
+    def set_age(self,age):
+        self.__age=age
+
+student1=Student("Darius",15)
+
+("Age:",student1.get_age())
+
+print("Name:",student1.get_name())
+
+student1.set_name("Blin")
+print("Name:",student1.get_name())
+
+print(student1.set_age(16))
+print("Age:",student1.get_age())
