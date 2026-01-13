@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib.lines import lineStyles
 
 df=pd.read_csv("avgIQpercountry.csv")
 
