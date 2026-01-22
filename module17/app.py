@@ -1,6 +1,6 @@
 import streamlit as st
 
-col1,col2,col3,col4,col5=st.colums(5,gap="small",vertical_aligment="center")
+col1,col2,col3,col4,col5=st.column(5,gap="small",vertical_aligment="center")
 
 with col1:
     st.header("Column 1")
