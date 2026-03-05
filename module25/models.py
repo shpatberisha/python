@@ -1,8 +1,8 @@
-fom pydantic import BaseModel
+from pydantic import BaseModel
 
-class MoivieCretae(BaseModel):
+class MovieCreate(BaseModel):
     title: str
     director: str
 
-class Movie(MoivieCreate):
-    id:int
+class Movie(MovieCreate):
+    id: int
