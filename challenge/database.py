@@ -1,10 +1,34 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+import sqlite3
 
-DATABASE_URL = "sqlite:///./recipes.db"
+DATABASE = "recipes.db"
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+def get_connection():
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    return conn
 
-SessionLocal = sessionmaker(bind=engine)
 
-Base = declarative_base()
+def create_tables():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS categories(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL
+    )
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS recipes(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        ingredients TEXT,
+        instructions TEXT,
+        category_id INTEGER,
+        FOREIGN KEY(category_id) REFERENCES categories(id)
+    )
+    """)
+
+    conn.commit()
+    conn.close()
