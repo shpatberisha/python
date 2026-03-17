@@ -19,3 +19,5 @@ def recipes_per_category():
     fig = px.bar(df, x="category", y="total", title="Recipes per Category")
 
     return fig.to_json()
+
+
